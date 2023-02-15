@@ -4,22 +4,25 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-type ProductsType = {
+type ProductType = {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image: string[];
 };
 
-export default function ProductsPage() {
-  const [products, setProducts] = useState<ProductsType | null>();
+type ProductListType = ProductType[]
 
-  const { query, back} = useRouter()
+export default function ProductsPage() {
+  const [products, setProducts] = useState<ProductListType | []>([]);
+
+  const { query, push} = useRouter()
 
   useEffect(() => {
-    api.get(`/products`).then((response) => {
-      setProducts(response.data.products);
-    });
+    api
+    .get("/products")
+    .then((response) => setProducts(response.data.products))
+    .catch((error) => alert(error));
   }, []);
 
   return (
@@ -32,9 +35,11 @@ export default function ProductsPage() {
               <h1>{product.title}</h1>
               <p>{product.description}</p>
               <Image src={product.image} alt={product.title} />
-                <Link href={`/produtos/${product.id}`}>
+              <button onClick={()=> push(`/produtos/${product.id}`)}>
+
                     Detalhe do produto
-                </Link>
+
+              </button>
             </li>
           </ul>
         </div>
