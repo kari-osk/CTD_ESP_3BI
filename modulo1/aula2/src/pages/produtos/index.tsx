@@ -36,9 +36,7 @@ export default function ProductsPage() {
               <p>{product.description}</p>
               <Image src={product.image} alt={product.title} />
               <button onClick={()=> push(`/produtos/${product.id}`)}>
-
                     Detalhe do produto
-
               </button>
             </li>
           </ul>
