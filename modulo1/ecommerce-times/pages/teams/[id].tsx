@@ -34,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
             id:team.response.id
         }
     }))
-    console.log(teams)
+
     return {
         paths: paths,
         fallback: false

@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Image from "next/image";
 import { ParsedUrlQuery } from "querystring";
 import { TeamsType } from "..";
 
@@ -22,9 +23,17 @@ export default function ProductDetail(props: PropsProduct) {
   const { product } = props;
 
   return (
-    <>
-      <div>
-        <img src={product.urlImage} alt={product.name} />
+    <div className="bg-gray-800 w-screen h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="w-fit py-4 bg-gray-700 rounded-md">
+          <Image
+            src={product.urlImage}
+            alt={product.name}
+            width={300}
+            height={300}
+            
+          />
+        </div>
         <div>
           <h2>{product.name}</h2>
           <h3>{product.maker}</h3>
@@ -34,7 +43,7 @@ export default function ProductDetail(props: PropsProduct) {
           <p>{product.description}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
