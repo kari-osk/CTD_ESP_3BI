@@ -4,6 +4,7 @@ import { Poppins } from "@next/font/google";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
+import { AiFillInfoCircle } from "react-icons/ai";
 
 export type TeamsType = {
   _id: string;
@@ -24,11 +25,13 @@ export default function Home({ teams }: ITeamsProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=" bg-gray-800 w-screen h-screen justify-center">
+      <main className=" bg-gray-800 w-full h-full justify-center">
         <div className="mx-auto my-auto w-fit bg-gray-800 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 items-center justify-center ">
           {teams.map((team) => (
             <div className="w-[180px] bg-gray-700 rounded-xl py-4 px-4">
-              <Link href={`/teams/${team._id}`}>info do time</Link>
+              <div className="">
+              <Link href={`/teams/${team._id}`} className=""><AiFillInfoCircle color="gray" size={20}/></Link>
+              </div>
 
               <Link href={`/team/${team._id}`}>
                 <Image
