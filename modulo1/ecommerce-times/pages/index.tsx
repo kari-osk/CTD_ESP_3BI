@@ -25,10 +25,10 @@ export default function Home({ teams }: ITeamsProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=" bg-gray-800 w-full h-full justify-center">
-        <div className="mx-auto my-auto w-fit bg-gray-800 grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 items-center justify-center ">
+      <main className=" bg-zinc-900 w-full h-full justify-center">
+        <div className="mx-auto my-auto w-fit  grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 items-center justify-center ">
           {teams.map((team) => (
-            <div className="w-[180px] bg-gray-700 rounded-xl py-4 px-4">
+            <div className="w-[180px] bg-zinc-700 rounded-xl py-4 px-4">
               <div className="">
               <Link href={`/teams/${team._id}`} className=""><AiFillInfoCircle color="gray" size={20}/></Link>
               </div>
