@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Poppins } from "@next/font/google";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
@@ -12,7 +11,7 @@ export type TeamsType = {
   image: string;
 };
 
-interface ITeamsProps {
+export interface ITeamsProps {
   teams: TeamsType[];
 }
 
@@ -26,11 +25,11 @@ export default function Home({ teams }: ITeamsProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" bg-zinc-900 w-full h-full justify-center">
-        <div className="mx-auto my-auto w-fit  grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 items-center justify-center ">
+        <div className="mx-auto my-auto w-fit grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 items-center justify-center">
           {teams.map((team) => (
             <div className="w-[180px] bg-zinc-700 rounded-xl py-4 px-4">
-              <div className="">
-              <Link href={`/teams/${team._id}`} className=""><AiFillInfoCircle color="gray" size={20}/></Link>
+              <div className="relative mb-6">
+              <Link className="absolute right-0" href={`/teams/${team._id}`}><AiFillInfoCircle color="gray" size={22}/></Link>
               </div>
 
               <Link href={`/team/${team._id}`}>
