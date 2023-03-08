@@ -1,0 +1,6 @@
+.form {
+    width: 350px;
+
+    display: grid;
+    align-items: center;
+}
